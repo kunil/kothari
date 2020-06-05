@@ -15,7 +15,7 @@ graph=tf.get_default_graph()
                 
 @app.route('/')
 def home():
-    return render_template('index.html',data=[{"name":"CNN"},{"name":"SVM"},{"name":"KNN"},{"name":"Naive Bayes"},{"name":"Stochastic"}])
+    return render_template('index.html',data=[{"name":"NN"},{"name":"SVM"},{"name":"KNN"},{"name":"Naive Bayes"},{"name":"Stochastic"}])
 
 @app.route('/predict',methods=['GET','POST'])
 def predict():
@@ -29,7 +29,7 @@ def predict():
         false=0;
         data = pd.read_csv(request.files["data"]);
         X = pd.DataFrame(data.iloc[:, 0:4])
-        if select=="CNN" :
+        if select=="NN" :
             prediction = model.predict(X)
             prediction=(prediction>0.5)
             for i in prediction:
@@ -41,7 +41,7 @@ def predict():
             prob= round(prob,2)
             print(prob)
             if (true>false):
-                output="SENSORY DISORDER MIGHT BE PRESENT.\n The predicted probability is " + str(prob) +". \nThe model uses Neural Network to generate this report. \nThe accuracy of this model is 94%. The precision for a child having sensory disorder is 0.97. It can model complex, multivariate sensory time series data. According to the session data provided to the system the autistic patient might have a sensory disorder (Auditory and Visual) present."
+                output="SENSORY DISORDER MIGHT BE PRESENT(CNN)"
             else:
                 output="Sensory Disorder not present"
         elif select =="SVM":
