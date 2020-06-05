@@ -39,7 +39,7 @@ def predict():
                     false=false+1;
             prob = true/(false+true) 
             prob= round(prob,2)
-            print(prob)
+            
             
         elif select =="SVM":
             prediction = model2.predict(X)
@@ -51,7 +51,7 @@ def predict():
                     false=false+1;     
             prob = true/(false+true) 
             prob= round(prob,2)
-            print(prob)
+            
             
         elif select == "KNN":
             prediction = model3.predict(X)
@@ -63,7 +63,7 @@ def predict():
                     false=false+1;
             prob = true/(false+true) 
             prob= round(prob,2)    
-            print(prob)
+            
         elif select=="Naive Bayes" :
             prediction = model4.predict(X)
             prediction=(prediction>0.5)
@@ -75,7 +75,7 @@ def predict():
                 
             prob = true/(false+true) 
             prob= round(prob,2)
-            print(prob)
+           
         else:
             prediction = model5.predict(X)
             prediction=(prediction>0.5)
@@ -87,8 +87,8 @@ def predict():
                 
             prob = true/(false+true) 
             prob= round(prob,2)
-            print(prob)
-    return render_template('index.html', prediction_text='{}'.format(output))
+            
+    return render_template('index.html', prediction_text='{}'.format(prob))
 
 
     
