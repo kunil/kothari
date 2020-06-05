@@ -39,11 +39,8 @@ def predict():
                     false=false+1;
             prob = true/(false+true) 
             prob= round(prob,2)
+            print(prob)
             
-            if (true>false):
-                output="SENSORY DISORDER MIGHT BE PRESENT(CNN)"
-            else:
-                output="Sensory Disorder not present"
         elif select =="SVM":
             prediction = model2.predict(X)
             prediction=(prediction>0.5)
@@ -54,11 +51,8 @@ def predict():
                     false=false+1;     
             prob = true/(false+true) 
             prob= round(prob,2)
-            if (true>false):
-                output="Sensory Disorder might be present(SVM)"
-
-            else:
-                output="Sensory Disorder not present(SVM). The predicted probability is "
+            print(prob)
+            
         elif select == "KNN":
             prediction = model3.predict(X)
             prediction=(prediction>0.5)
@@ -67,11 +61,9 @@ def predict():
                     true=true+1;
                 else:
                     false=false+1;
-                
-            if (true>false):
-                output="Sensory Disorder might be present(KNN)"
-            else:
-                output="Sensory Disorder not present(KNN)"
+            prob = true/(false+true) 
+            prob= round(prob,2)    
+            print(prob)
         elif select=="Naive Bayes" :
             prediction = model4.predict(X)
             prediction=(prediction>0.5)
@@ -81,10 +73,9 @@ def predict():
                 else:
                     false=false+1;
                 
-            if (true>false):
-               output="Sensory Disorder might be present(NB)"
-            else:
-                output="Sensory Disorder not present(NB)"
+            prob = true/(false+true) 
+            prob= round(prob,2)
+            print(prob)
         else:
             prediction = model5.predict(X)
             prediction=(prediction>0.5)
@@ -94,11 +85,9 @@ def predict():
                 else:
                     false=false+1;
                 
-            if (true>false):
-                output="Sensory Disorder might be present(Stochastic)"
-            else:
-                output="Sensory Disorder not present(Stochastic)"
-
+            prob = true/(false+true) 
+            prob= round(prob,2)
+            print(prob)
     return render_template('index.html', prediction_text='{}'.format(output))
 
 
