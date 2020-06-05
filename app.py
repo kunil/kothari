@@ -55,7 +55,8 @@ def predict():
             prob = true/(false+true) 
             prob= round(prob,2)
             if (true>false):
-                output="Sensory Disorder might be present(SVM)"
+                output="Sensory Disorder might be present(SVM)\n The predicted probability is " + str(prob) +. "\nThe model uses Neural Network to generate this report. \nThe accuracy of this model is 94%. The precision for a child having sensory disorder is 0.97. It can model complex, multivariate sensory time series data. According to the session data provided to the system the autistic patient might have a sensory disorder (Auditory and Visual) present."
+
             else:
                 output="Sensory Disorder not present(SVM). The predicted probability is " + str(prob) +". \nThe model uses SVM to generate this report. \nThe accuracy of this model is 83%. The precision for a child not having sensory disorder is 0.79. According to the session data provided to the system the autistic patient don't. have a sensory disorder(Auditory and Visual) present."
         elif select == "KNN":
